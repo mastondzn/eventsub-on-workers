@@ -1,5 +1,5 @@
 {
-    "name": "@mastondzn/eventapi-on-workers",
+    "name": "@mastondzn/eventsub-on-workers",
     "type": "module",
     "version": "0.1.0",
     "scripts": {

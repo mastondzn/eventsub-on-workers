@@ -1,4 +1,4 @@
-name = "eventapi-on-workers"
+name = "eventsub-on-workers"
 compatibility_date = "2023-12-01"
 
 # [[migrations]]
