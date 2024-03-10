@@ -1,0 +1,24 @@
+{
+    "name": "@mastondzn/eventapi-on-workers",
+    "type": "module",
+    "version": "0.1.0",
+    "scripts": {
+        "dev": "wrangler dev src/index.ts",
+        "deploy": "wrangler deploy --minify src/index.ts",
+        "lint": "eslint .",
+        "format": "prettier --write ."
+    },
+    "dependencies": {
+        "@hono/zod-validator": "^0.2.0",
+        "hono": "^4.0.9",
+        "zod": "^3.22.4"
+    },
+    "devDependencies": {
+        "@cloudflare/workers-types": "^4.20240208.0",
+        "@mastondzn/eslint": "^0.8.0",
+        "eslint": "^8.57.0",
+        "prettier": "^3.2.5",
+        "typescript": "^5.4.2",
+        "wrangler": "^3.31.0"
+    }
+}
