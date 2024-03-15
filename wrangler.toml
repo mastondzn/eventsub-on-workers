@@ -12,9 +12,9 @@ compatibility_date = "2023-12-01"
 # [vars]
 # MY_VARIABLE = "production_value"
 
-# [[kv_namespaces]]
-# binding = "MY_KV_NAMESPACE"
-# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+[[kv_namespaces]]
+binding = "KV"
+id = "71c95c2cd3354a6285bb8576f0a61fcf"
 
 # [[r2_buckets]]
 # binding = "MY_BUCKET"
