@@ -5,8 +5,8 @@
     "private": true,
     "scripts": {
         "dev": "wrangler dev src/index.ts --port 3005 --local",
-        "dev:tunnel": "dotenv -e .dev.vars -- tsx ./scripts/tunnel.ts",
         "deploy": "wrangler deploy --minify src/index.ts",
+        "typecheck": "tsc --noEmit",
         "lint": "eslint .",
         "format": "prettier --write ."
     },
