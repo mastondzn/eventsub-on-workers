@@ -27,9 +27,12 @@ export class AppTokenService {
     }
 
     async get(): Promise<string> {
-        const existing = await this.kv.get<AppTokenData>(this.key(), 'json');
-        if (existing && existing.expiresAt > new Date()) {
-            return existing.token;
+        const existing = await this.kv.get<string>(this.key());
+        if (existing) {
+            const data = superjson.parse<AppTokenData>(existing);
+            if (data.expiresAt > new Date()) {
+                return data.token;
+            }
         }
 
         const { body } = await zfetch({
