@@ -1,9 +1,10 @@
 import { zValidator } from '@hono/zod-validator';
-import { Hono, type MiddlewareHandler } from 'hono';
+import type { MiddlewareHandler } from 'hono';
 import { HTTPException } from 'hono/http-exception';
 import { z } from 'zod';
 
 import type { Environment } from '../env';
+import { createRoute } from '../utils/route';
 
 const validateSignature: MiddlewareHandler<{ Bindings: Environment }> = async (ctx, next) => {
     const signature = ctx.req.header('twitch-eventsub-message-signature');
@@ -48,7 +49,8 @@ const validateSignature: MiddlewareHandler<{ Bindings: Environment }> = async (c
     return next();
 };
 
-export const eventSubRoute = new Hono<{ Bindings: Environment }>().post(
+export const eventSubRoute = createRoute(
+    ['POST'],
     '/eventsub',
     validateSignature,
     zValidator(

@@ -1,14 +1,14 @@
 import { zValidator } from '@hono/zod-validator';
-import { Hono } from 'hono';
 import { z } from 'zod';
 
-import type { Environment } from '../env';
 import { withAppToken } from '../middlewares/app-token';
 import { getOrigin } from '../utils/origin';
+import { createRoute } from '../utils/route';
 import { jfetch } from '../utils/zfetch';
 
 // example of a route that triggers a subscription
-export const subscribeRoute = new Hono<{ Bindings: Environment }>().get(
+export const subscribeRoute = createRoute(
+    ['GET'],
     '/subscribe',
     withAppToken,
     zValidator('query', z.object({ broadcaster: z.string(), user: z.string() })),

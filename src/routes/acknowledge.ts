@@ -1,13 +1,13 @@
 import { zValidator } from '@hono/zod-validator';
-import { Hono } from 'hono';
 import { z } from 'zod';
 
-import type { Environment } from '../env';
 import { withStateService } from '../middlewares/states';
 import { withUsersService } from '../middlewares/users';
+import { createRoute } from '../utils/route';
 import { zfetch } from '../utils/zfetch';
 
-export const acknowledgeRoute = new Hono<{ Bindings: Environment }>().get(
+export const acknowledgeRoute = createRoute(
+    ['GET'],
     '/acknowledge',
     withStateService,
     withUsersService,
